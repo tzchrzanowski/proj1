@@ -1,0 +1,31 @@
+<div>
+    <button onClick={{this.setValues}}>get data</button>
+        {{!-- {{#ember-table as |t|}}
+            {{t.head columns=this.mockData.data.col}}
+            {{#t.body rows=this.mockData.data.value as |b|}}
+                {{#b.row as |r|}}
+                    {{#r.cell as |value|}}
+                        {{value}}
+                    {{/r.cell}}
+                {{/b.row}}
+            {{/t.body}}
+        {{/ember-table}} --}}
+
+    <EmberTable as |t|>
+    <t.head @columns={{this.columns}} as |h|>
+        <h.row as |r|>
+        <r.cell as |column|>
+            {{column}}
+        </r.cell>
+        </h.row>
+    </t.head>
+
+    <t.body @rows={{this.mockData.data}} as |b|>
+        <b.row as |r|>
+        <r.cell as |val|>
+            {{val.value}}
+        </r.cell>
+        </b.row>
+    </t.body>
+    </EmberTable>
+</div>
